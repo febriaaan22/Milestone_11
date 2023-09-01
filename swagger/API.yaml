@@ -2,6 +2,7 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: Milestone Week 11
+  description: 'This is a Back-end API based on Taylor Swift Point of View'
 servers:
   - url: https://fine-lime-shrimp-kilt.cyclic.app
     description: 'Web server'
@@ -72,6 +73,13 @@ paths:
                   type: string
                 studio:
                   type: string
+              required:
+                - title
+                - songwriter
+                - producer
+                - mixer
+                - engineer
+                - studio
       responses:
         '201':
           description: Successful response
@@ -100,6 +108,7 @@ paths:
           schema:
             type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -107,6 +116,8 @@ paths:
               properties:
                 status:
                   type: string
+              required:
+                - Status
       responses:
         '200':
           description: Successful response
@@ -138,6 +149,13 @@ paths:
                   type: string
                 studio:
                   type: string
+              required:
+                - title
+                - songwriter
+                - producer
+                - mixer
+                - engineer
+                - studio
       responses:
         '200':
           description: Successful response
