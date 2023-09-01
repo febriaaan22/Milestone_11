@@ -7,10 +7,19 @@ const songRouter = require('./routes/songRouter.js')
 const taylorRouter = require('./routes/taylorRouter.js')
 const authMiddleware = require('./middleware/authentication-middleware.js')
 
+const swaggerUi = require('swagger-ui-express')
+const yaml = require('yaml')
+const openApiValidator = require('express-openapi-validator')
+const bodyParser = require('body-parser')
+
 const app = express()
 
 app.use(cors())
-app.use(express.json())
+app.use(bodyParser.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(yaml.parse(require('fs').readFileSync('./swagger/API.yaml', 'utf8'))))
+app.use(openApiValidator.middleware({
+    apiSpec: './swagger/API.yaml'
+}));
 app.use(databaseMiddleware)
 
 app.get('/', (req, res) => {

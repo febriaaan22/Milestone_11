@@ -3,6 +3,8 @@ info:
   version: 1.0.0
   title: Milestone Week 11
 servers:
+  - url: https://fine-lime-shrimp-kilt.cyclic.app
+    description: 'Web server'
   - url: 'http://localhost:1989'
     description: 'local server'
 paths:
