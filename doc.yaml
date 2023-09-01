@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Milestone Week 11
+servers:
+  - url: 'http://localhost:1989'
+    description: 'local server'
+paths:
+  /song:
+    get:
+      summary: Get All Songs
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a Song
+      security:
+        - BearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                songwriter:
+                  type: string
+                producer:
+                  type: string
+                mixer:
+                  type: string
+                engineer:
+                  type: string
+                studio:
+                  type: string
+      responses:
+        '201':
+          description: Successful response
+  /song/{songId}:
+    delete:
+      summary: Delete a Song
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successful response
+    patch:
+      summary: Update a Song's Status
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update a Song's Details
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                songwriter:
+                  type: string
+                producer:
+                  type: string
+                mixer:
+                  type: string
+                engineer:
+                  type: string
+                studio:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+  /taylor/register:
+    post:
+      summary: Register a Taylor's Version User
+      security:
+        - BearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+      responses:
+        '201':
+          description: Successful response
+  /taylor/login:
+    post:
+      summary: Login as a Taylor's Version User
+      security:
+        - BearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
