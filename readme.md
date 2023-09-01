@@ -24,6 +24,7 @@ All of this idea is using the point of view of Taylor in choosing her collaborat
 - BODY PARSER
 - POSTMAN
 - BCRYPT
+- CYCLIC
 
 
 ## DATABASE
@@ -62,6 +63,10 @@ For above Input, I refer and break it down below with screenshot and picture to 
 7. ``` Login ``` : ```POST``` ```[/taylor/login]```
    ![login](Readme%20Documentation/Post%20Login.png)
 
+
+## DEPLOYMENT
+
+For this project I use Cyclic to help me with deployment. This is the best website and it help me alot of my project. Here is the link: https://fine-lime-shrimp-kilt.cyclic.app/api-docs/#/
 
 ## Contact Me
 This project is far from perfect and I need your feedback to improve this project <br>
